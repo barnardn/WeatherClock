@@ -10,6 +10,8 @@
 		493325F62039F6DA0061DDBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493325F52039F6DA0061DDBE /* AppDelegate.swift */; };
 		493325F82039F6DA0061DDBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 493325F72039F6DA0061DDBE /* Assets.xcassets */; };
 		493325FB2039F6DA0061DDBE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493325F92039F6DA0061DDBE /* MainMenu.xib */; };
+		4933260C203A1FB50061DDBE /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933260A203A1FB50061DDBE /* RootViewController.swift */; };
+		4933260D203A1FB50061DDBE /* RootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4933260B203A1FB50061DDBE /* RootView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		493325FA2039F6DA0061DDBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		493325FC2039F6DA0061DDBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		493325FD2039F6DA0061DDBE /* WeatherClock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WeatherClock.entitlements; sourceTree = "<group>"; };
+		4933260A203A1FB50061DDBE /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		4933260B203A1FB50061DDBE /* RootView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 				493325F92039F6DA0061DDBE /* MainMenu.xib */,
 				493325FC2039F6DA0061DDBE /* Info.plist */,
 				493325FD2039F6DA0061DDBE /* WeatherClock.entitlements */,
+				4933260A203A1FB50061DDBE /* RootViewController.swift */,
+				4933260B203A1FB50061DDBE /* RootView.xib */,
 			);
 			path = WeatherClock;
 			sourceTree = "<group>";
@@ -121,6 +127,7 @@
 			files = (
 				493325F82039F6DA0061DDBE /* Assets.xcassets in Resources */,
 				493325FB2039F6DA0061DDBE /* MainMenu.xib in Resources */,
+				4933260D203A1FB50061DDBE /* RootView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4933260C203A1FB50061DDBE /* RootViewController.swift in Sources */,
 				493325F62039F6DA0061DDBE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,15 +12,16 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+    let rootPopover = NSPopover()
     
     @IBOutlet weak var window: NSWindow!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         if let button = statusItem.button {
             button.image = NSImage(named: NSImage.Name("icon-statusbar"))
-            button.action = #selector(printQuote(_:))
+            button.action = #selector(toggleRootPopover(_:))
         }
-        statusItem.menu = mainMenu()
+        rootPopover.contentViewController = RootViewController()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -29,18 +30,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @objc func printQuote(_ sender: NSStatusBarButton) {
         let quoteText = "Never put off until tomorrow what you can do the day after tomorrow."
-        let quoteAuthor = "Mark Twain"
-        
+        let quoteAuthor = "Mark Twain"       
         print("\(quoteText) — \(quoteAuthor)")
     }
 
-    private func mainMenu() -> NSMenu {
-        let menu = NSMenu()
-        let quitItem = NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
-        menu.addItem(quitItem)
-        return menu
+    @objc private func toggleRootPopover(_ sender: Any?) {
+        if rootPopover.isShown {
+            closePopover(sender)
+        } else {
+            showPopover(sender)
+        }
     }
     
+    private func showPopover(_ sender: Any?) {
+        if let button = statusItem.button {
+            rootPopover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
+        }
+    }
+    
+    private func closePopover(_ sender: Any?) {
+        rootPopover.performClose(sender)
+    }
     
 }
 
