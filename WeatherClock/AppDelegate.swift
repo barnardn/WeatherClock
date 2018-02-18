@@ -15,13 +15,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBOutlet weak var window: NSWindow!
 
-
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         if let button = statusItem.button {
-
             button.image = NSImage(named: NSImage.Name("icon-statusbar"))
             button.action = #selector(printQuote(_:))
         }
+        statusItem.menu = mainMenu()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -35,5 +34,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         print("\(quoteText) — \(quoteAuthor)")
     }
 
+    private func mainMenu() -> NSMenu {
+        let menu = NSMenu()
+        let quitItem = NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
+        menu.addItem(quitItem)
+        return menu
+    }
+    
+    
 }
 
