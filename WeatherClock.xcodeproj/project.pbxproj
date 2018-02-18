@@ -262,7 +262,7 @@
 				CODE_SIGN_ENTITLEMENTS = WeatherClock/WeatherClock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = X9UXAUND6E;
+				DEVELOPMENT_TEAM = FA5W6TJ34U;
 				INFOPLIST_FILE = WeatherClock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.normbarnard.WeatherClock;
@@ -278,7 +278,7 @@
 				CODE_SIGN_ENTITLEMENTS = WeatherClock/WeatherClock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = X9UXAUND6E;
+				DEVELOPMENT_TEAM = FA5W6TJ34U;
 				INFOPLIST_FILE = WeatherClock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.normbarnard.WeatherClock;
