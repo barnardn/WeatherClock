@@ -13,6 +13,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     let rootPopover = NSPopover()
+    private lazy var rootEventMonitor: RootEventMonitor = {
+        let monitor = RootEventMonitor(mask: [.leftMouseDown, .rightMouseDown]) {
+            [weak self] event in
+                if self?.rootPopover.isShown == true {
+                    self?.closePopover(nil)
+                }
+            }
+        return monitor
+    }()
     
     @IBOutlet weak var window: NSWindow!
 
@@ -45,11 +54,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private func showPopover(_ sender: Any?) {
         if let button = statusItem.button {
             rootPopover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
+            rootEventMonitor.start()
         }
     }
     
     private func closePopover(_ sender: Any?) {
         rootPopover.performClose(sender)
+        rootEventMonitor.stop()
     }
     
 }

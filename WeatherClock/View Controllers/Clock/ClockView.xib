@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ClockViewController" customModule="WeatherClock" customModuleProvider="target">
+            <connections>
+                <outlet property="localTimeView" destination="B8A-Nr-Jhh" id="jkO-Gv-BmE"/>
+                <outlet property="sanfranTimeView" destination="ed4-YE-YLH" id="TYo-fC-wnP"/>
+                <outlet property="utcTimeView" destination="a7E-Cb-FRE" id="Yaj-K0-v9h"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="302" height="449"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <stackView distribution="fillEqually" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yfx-UF-c1L">
+                    <rect key="frame" x="0.0" y="0.0" width="302" height="449"/>
+                    <subviews>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="B8A-Nr-Jhh" customClass="TimeView" customModule="WeatherClock" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="353" width="302" height="96"/>
+                        </customView>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="ed4-YE-YLH" customClass="TimeView" customModule="WeatherClock" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="249" width="302" height="96"/>
+                        </customView>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="a7E-Cb-FRE" customClass="TimeView" customModule="WeatherClock" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="302" height="241"/>
+                        </customView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="ed4-YE-YLH" firstAttribute="width" secondItem="B8A-Nr-Jhh" secondAttribute="width" id="1Il-Ub-Qq7"/>
+                        <constraint firstItem="a7E-Cb-FRE" firstAttribute="width" secondItem="ed4-YE-YLH" secondAttribute="width" id="Hja-fJ-nxV"/>
+                        <constraint firstAttribute="trailing" secondItem="B8A-Nr-Jhh" secondAttribute="trailing" id="p49-ed-wf3"/>
+                    </constraints>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="Yfx-UF-c1L" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="4Nm-tA-lRs"/>
+                <constraint firstItem="Yfx-UF-c1L" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="JjW-Yv-Fg7"/>
+                <constraint firstAttribute="trailing" secondItem="Yfx-UF-c1L" secondAttribute="trailing" id="pwz-wP-KfQ"/>
+                <constraint firstAttribute="bottom" secondItem="Yfx-UF-c1L" secondAttribute="bottom" id="qWO-F4-dQg"/>
+            </constraints>
+            <point key="canvasLocation" x="-65" y="-91.5"/>
+        </customView>
+    </objects>
+</document>
