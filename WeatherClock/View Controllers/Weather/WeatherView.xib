@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="WeatherViewController" customModule="WeatherClock" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="709" height="190"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="WVs-PL-2oW">
+                    <rect key="frame" x="18" y="171" width="673" height="19"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="19" id="lQp-FM-v8S"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Current Weather Conditions" id="nWH-qf-ic2">
+                        <font key="font" metaFont="system" size="16"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <customView verticalHuggingPriority="249" verticalCompressionResistancePriority="718" translatesAutoresizingMaskIntoConstraints="NO" id="A9W-Dl-VcZ" customClass="ConditionsView" customModule="WeatherClock" customModuleProvider="target">
+                    <rect key="frame" x="20" y="113" width="669" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="twc-f6-Dsn"/>
+                    </constraints>
+                </customView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="pQy-Eg-vc2">
+                    <rect key="frame" x="18" y="83" width="673" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="Ld7-2d-gjX"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="74˚c" id="ygG-Xt-oiZ">
+                        <font key="font" metaFont="system" size="18"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="pQy-Eg-vc2" firstAttribute="leading" secondItem="A9W-Dl-VcZ" secondAttribute="leading" id="1aa-Pb-4HD"/>
+                <constraint firstItem="A9W-Dl-VcZ" firstAttribute="top" secondItem="WVs-PL-2oW" secondAttribute="bottom" constant="8" symbolic="YES" id="4Zz-Rm-ExA"/>
+                <constraint firstItem="WVs-PL-2oW" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" symbolic="YES" id="61c-SV-PLz"/>
+                <constraint firstAttribute="trailing" secondItem="WVs-PL-2oW" secondAttribute="trailing" constant="20" symbolic="YES" id="CZd-Mg-Nfh"/>
+                <constraint firstItem="pQy-Eg-vc2" firstAttribute="top" secondItem="A9W-Dl-VcZ" secondAttribute="bottom" constant="8" symbolic="YES" id="WPh-jC-OOI"/>
+                <constraint firstItem="A9W-Dl-VcZ" firstAttribute="trailing" secondItem="WVs-PL-2oW" secondAttribute="trailing" id="Zph-mC-hID"/>
+                <constraint firstItem="pQy-Eg-vc2" firstAttribute="trailing" secondItem="A9W-Dl-VcZ" secondAttribute="trailing" id="gvr-UK-ITM"/>
+                <constraint firstItem="A9W-Dl-VcZ" firstAttribute="leading" secondItem="WVs-PL-2oW" secondAttribute="leading" id="iVM-0z-irf"/>
+                <constraint firstItem="WVs-PL-2oW" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="xOb-1S-1cx"/>
+            </constraints>
+            <point key="canvasLocation" x="86.5" y="250"/>
+        </customView>
+    </objects>
+</document>

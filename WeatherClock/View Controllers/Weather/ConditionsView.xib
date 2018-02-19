@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ConditionsView" customModule="WeatherClock" customModuleProvider="target">
+            <connections>
+                <outlet property="conditionsLabel" destination="5b1-eA-ptb" id="NVy-Jc-zDW"/>
+                <outlet property="iconImageView" destination="05I-wX-RHh" id="R7k-Zj-jaZ"/>
+                <outlet property="view" destination="c22-O7-iKe" id="QGT-MI-slP"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="05I-wX-RHh">
+                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="sFY-vf-4xF"/>
+                        <constraint firstAttribute="width" constant="50" id="xyB-6u-smA"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="icon-weather-placeholder" id="O0f-aJ-x1M"/>
+                </imageView>
+                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="5b1-eA-ptb">
+                    <rect key="frame" x="58" y="0.0" width="404" height="50"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Multiline Label" id="UEK-Fl-TQ6">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="05I-wX-RHh" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="3pM-2l-oyR"/>
+                <constraint firstAttribute="bottom" secondItem="05I-wX-RHh" secondAttribute="bottom" id="M1c-MO-Sdf"/>
+                <constraint firstAttribute="trailing" secondItem="5b1-eA-ptb" secondAttribute="trailing" constant="20" symbolic="YES" id="PAm-lM-R22"/>
+                <constraint firstItem="5b1-eA-ptb" firstAttribute="centerY" secondItem="05I-wX-RHh" secondAttribute="centerY" id="cyc-S9-eEE"/>
+                <constraint firstItem="05I-wX-RHh" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="dmm-sc-sF8"/>
+                <constraint firstItem="5b1-eA-ptb" firstAttribute="leading" secondItem="05I-wX-RHh" secondAttribute="trailing" constant="10" id="jhE-Yc-KTP"/>
+                <constraint firstItem="5b1-eA-ptb" firstAttribute="height" secondItem="05I-wX-RHh" secondAttribute="height" id="paB-Bh-vFG"/>
+                <constraint firstItem="05I-wX-RHh" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="we7-bD-IgA"/>
+            </constraints>
+            <point key="canvasLocation" x="84" y="143"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="icon-weather-placeholder" width="50" height="50"/>
+    </resources>
+</document>

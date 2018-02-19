@@ -14,6 +14,7 @@ class RootViewController: NSViewController {
     @IBOutlet weak var quitButton: NSButton!
 
     private var clockViewController: ClockViewController?
+    private var weatherViewController: WeatherViewController?
     
     override var nibName: NSNib.Name? {
         return NSNib.Name("RootView")
@@ -26,11 +27,19 @@ class RootViewController: NSViewController {
         addChildViewController(_clockViewController)
         view.addSubview(_clockViewController.view)
         clockViewController = _clockViewController
+        
+        let _weatherViewController = WeatherViewController()
+        addChildViewController(_weatherViewController)
+        view.addSubview(_weatherViewController.view)
+        weatherViewController = _weatherViewController
+        
     }
     
     override func viewDidLayout() {
         super.viewDidLayout()
-        clockViewController?.view.frame = CGRect(x: 0, y: 0, width: view.bounds.width/2.0, height: view.bounds.height)
+        let clockFrame = CGRect(x: 0, y: 0, width: view.bounds.width/2.0, height: view.bounds.height)
+        clockViewController?.view.frame = clockFrame
+        weatherViewController?.view.frame = CGRect(x: clockFrame.maxX, y: 0, width: clockFrame.width, height: view.bounds.height)
     }
     
     @IBAction func quitButtonClicked(_ sender: NSButton) {

@@ -17,6 +17,10 @@
 		49332617203A40930061DDBE /* ClockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49332615203A40930061DDBE /* ClockView.xib */; };
 		49332619203A66D20061DDBE /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49332618203A66D20061DDBE /* TimeView.swift */; };
 		4933261B203A66DF0061DDBE /* TimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4933261A203A66DF0061DDBE /* TimeView.xib */; };
+		4933261E203B4C3E0061DDBE /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933261C203B4C3E0061DDBE /* WeatherViewController.swift */; };
+		4933261F203B4C3E0061DDBE /* WeatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4933261D203B4C3E0061DDBE /* WeatherView.xib */; };
+		49332625203B51B70061DDBE /* ConditionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49332624203B51B70061DDBE /* ConditionsView.xib */; };
+		49332627203B52AC0061DDBE /* ConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49332626203B52AC0061DDBE /* ConditionsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +37,10 @@
 		49332615203A40930061DDBE /* ClockView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClockView.xib; sourceTree = "<group>"; };
 		49332618203A66D20061DDBE /* TimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
 		4933261A203A66DF0061DDBE /* TimeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeView.xib; sourceTree = "<group>"; };
+		4933261C203B4C3E0061DDBE /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		4933261D203B4C3E0061DDBE /* WeatherView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherView.xib; sourceTree = "<group>"; };
+		49332624203B51B70061DDBE /* ConditionsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConditionsView.xib; sourceTree = "<group>"; };
+		49332626203B52AC0061DDBE /* ConditionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,10 @@
 		49332610203A28DF0061DDBE /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				4933261C203B4C3E0061DDBE /* WeatherViewController.swift */,
+				4933261D203B4C3E0061DDBE /* WeatherView.xib */,
+				49332624203B51B70061DDBE /* ConditionsView.xib */,
+				49332626203B52AC0061DDBE /* ConditionsView.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -173,6 +185,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				493325F82039F6DA0061DDBE /* Assets.xcassets in Resources */,
+				49332625203B51B70061DDBE /* ConditionsView.xib in Resources */,
+				4933261F203B4C3E0061DDBE /* WeatherView.xib in Resources */,
 				493325FB2039F6DA0061DDBE /* MainMenu.xib in Resources */,
 				4933260D203A1FB50061DDBE /* RootView.xib in Resources */,
 				49332617203A40930061DDBE /* ClockView.xib in Resources */,
@@ -188,7 +202,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				49332613203A29570061DDBE /* RootEventMonitor.swift in Sources */,
+				4933261E203B4C3E0061DDBE /* WeatherViewController.swift in Sources */,
 				4933260C203A1FB50061DDBE /* RootViewController.swift in Sources */,
+				49332627203B52AC0061DDBE /* ConditionsView.swift in Sources */,
 				49332619203A66D20061DDBE /* TimeView.swift in Sources */,
 				493325F62039F6DA0061DDBE /* AppDelegate.swift in Sources */,
 				49332616203A40930061DDBE /* ClockViewController.swift in Sources */,

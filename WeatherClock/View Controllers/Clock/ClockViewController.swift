@@ -54,7 +54,6 @@ class ClockViewController: NSViewController {
         let formatter: DateFormatter
         if let abbrev = timeZone.abbreviation() {
             if let _formatter = cachedDateFormatters[abbrev] {
-                print("Cached formatter for time zone \(abbrev)")
                 formatter = _formatter
             } else {
                 formatter = ClockViewController.dateFormatter(forTimeZone: timeZone)
