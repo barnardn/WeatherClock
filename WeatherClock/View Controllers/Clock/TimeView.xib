@@ -27,7 +27,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5dz-H1-tTy">
-                    <rect key="frame" x="109" y="65" width="56" height="17"/>
+                    <rect key="frame" x="-2" y="43" width="56" height="17"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Location" id="eSV-66-gGU">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -37,9 +37,9 @@
             </subviews>
             <constraints>
                 <constraint firstItem="ctx-RB-0bN" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="3ge-TS-0zK"/>
-                <constraint firstItem="5dz-H1-tTy" firstAttribute="baseline" secondItem="ctx-RB-0bN" secondAttribute="baseline" id="8VQ-FI-EDM"/>
+                <constraint firstItem="5dz-H1-tTy" firstAttribute="leading" secondItem="ctx-RB-0bN" secondAttribute="leading" id="4Cj-XA-q3P"/>
+                <constraint firstItem="5dz-H1-tTy" firstAttribute="top" secondItem="ctx-RB-0bN" secondAttribute="bottom" constant="2" id="CZt-nH-tUz"/>
                 <constraint firstItem="ctx-RB-0bN" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="PcM-qd-98x"/>
-                <constraint firstItem="5dz-H1-tTy" firstAttribute="leading" secondItem="ctx-RB-0bN" secondAttribute="trailing" constant="10" id="gVg-O3-pVT"/>
             </constraints>
             <point key="canvasLocation" x="134" y="78"/>
         </customView>

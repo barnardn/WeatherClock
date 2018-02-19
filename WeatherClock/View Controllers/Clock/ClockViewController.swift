@@ -14,6 +14,9 @@ class ClockViewController: NSViewController {
     @IBOutlet weak var sanfranTimeView: TimeView!
     @IBOutlet weak var utcTimeView: TimeView!
     
+    private var cachedDateFormatters = [String: DateFormatter]()
+    private var timer: Timer?
+    
     private lazy var timeFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.timeStyle = .short
@@ -30,6 +33,16 @@ class ClockViewController: NSViewController {
         localTimeView.type = .big
         sanfranTimeView.location = "San Francisco"
         utcTimeView.location = "UTC"
+        updateTimeDisplay()
+        let _timer = Timer(timeInterval: 1, repeats: true) { [weak self] timer in
+            guard let `self` = self else { return }
+            self.updateTimeDisplay()
+        }
+        timer = _timer
+        RunLoop.current.add(_timer, forMode: .defaultRunLoopMode)
+    }
+    
+    private func updateTimeDisplay() {
         localTimeView.time = timeAt(timeZone: TimeZone.autoupdatingCurrent)
         sanfranTimeView.time = timeAt(timeZone: TimeZone(abbreviation: "PDT"))
         utcTimeView.time = timeAt(timeZone: TimeZone(abbreviation: "UTC"))
@@ -37,15 +50,27 @@ class ClockViewController: NSViewController {
     
     private func timeAt(timeZone: TimeZone?) -> String? {
         guard let timeZone = timeZone else { return nil }
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = timeZone
-        dateFormatter.timeStyle = .short
-        return dateFormatter.string(from: Date())
+        
+        let formatter: DateFormatter
+        if let abbrev = timeZone.abbreviation() {
+            if let _formatter = cachedDateFormatters[abbrev] {
+                print("Cached formatter for time zone \(abbrev)")
+                formatter = _formatter
+            } else {
+                formatter = ClockViewController.dateFormatter(forTimeZone: timeZone)
+                cachedDateFormatters[abbrev] = formatter
+            }
+        } else {
+            formatter = ClockViewController.dateFormatter(forTimeZone: timeZone)
+        }
+        return formatter.string(from: Date())
     }
     
-    @IBAction func click(_ sender: Any) {
-        print("crap")
+    fileprivate static func dateFormatter(forTimeZone timeZone: TimeZone) -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.timeZone = timeZone
+        formatter.timeStyle = .medium
+        return formatter
     }
-    
     
 }

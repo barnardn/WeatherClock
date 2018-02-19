@@ -17,20 +17,20 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="302" height="449"/>
+            <rect key="frame" x="0.0" y="0.0" width="312" height="449"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <stackView distribution="fillEqually" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yfx-UF-c1L">
-                    <rect key="frame" x="0.0" y="0.0" width="302" height="449"/>
+                    <rect key="frame" x="8" y="0.0" width="304" height="449"/>
                     <subviews>
                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="B8A-Nr-Jhh" customClass="TimeView" customModule="WeatherClock" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="353" width="302" height="96"/>
+                            <rect key="frame" x="0.0" y="353" width="304" height="96"/>
                         </customView>
                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="ed4-YE-YLH" customClass="TimeView" customModule="WeatherClock" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="249" width="302" height="96"/>
+                            <rect key="frame" x="0.0" y="249" width="304" height="96"/>
                         </customView>
                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="a7E-Cb-FRE" customClass="TimeView" customModule="WeatherClock" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="302" height="241"/>
+                            <rect key="frame" x="0.0" y="0.0" width="304" height="241"/>
                         </customView>
                     </subviews>
                     <constraints>
@@ -51,7 +51,7 @@
                 </stackView>
             </subviews>
             <constraints>
-                <constraint firstItem="Yfx-UF-c1L" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="4Nm-tA-lRs"/>
+                <constraint firstItem="Yfx-UF-c1L" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="8" id="4Nm-tA-lRs"/>
                 <constraint firstItem="Yfx-UF-c1L" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="JjW-Yv-Fg7"/>
                 <constraint firstAttribute="trailing" secondItem="Yfx-UF-c1L" secondAttribute="trailing" id="pwz-wP-KfQ"/>
                 <constraint firstAttribute="bottom" secondItem="Yfx-UF-c1L" secondAttribute="bottom" id="qWO-F4-dQg"/>
