@@ -21,6 +21,7 @@
 		4933261F203B4C3E0061DDBE /* WeatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4933261D203B4C3E0061DDBE /* WeatherView.xib */; };
 		49332625203B51B70061DDBE /* ConditionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49332624203B51B70061DDBE /* ConditionsView.xib */; };
 		49332627203B52AC0061DDBE /* ConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49332626203B52AC0061DDBE /* ConditionsView.swift */; };
+		4933262A203B744C0061DDBE /* OWMCurrentConditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49332629203B744C0061DDBE /* OWMCurrentConditions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		4933261D203B4C3E0061DDBE /* WeatherView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherView.xib; sourceTree = "<group>"; };
 		49332624203B51B70061DDBE /* ConditionsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConditionsView.xib; sourceTree = "<group>"; };
 		49332626203B52AC0061DDBE /* ConditionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionsView.swift; sourceTree = "<group>"; };
+		49332629203B744C0061DDBE /* OWMCurrentConditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWMCurrentConditions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 		493325F42039F6DA0061DDBE /* WeatherClock */ = {
 			isa = PBXGroup;
 			children = (
+				49332628203B70650061DDBE /* Network */,
 				49332611203A28F60061DDBE /* Startup */,
 				4933260E203A28C30061DDBE /* View Controllers */,
 				493325F52039F6DA0061DDBE /* AppDelegate.swift */,
@@ -123,6 +126,14 @@
 				49332612203A29570061DDBE /* RootEventMonitor.swift */,
 			);
 			path = Startup;
+			sourceTree = "<group>";
+		};
+		49332628203B70650061DDBE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				49332629203B744C0061DDBE /* OWMCurrentConditions.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +217,7 @@
 				4933260C203A1FB50061DDBE /* RootViewController.swift in Sources */,
 				49332627203B52AC0061DDBE /* ConditionsView.swift in Sources */,
 				49332619203A66D20061DDBE /* TimeView.swift in Sources */,
+				4933262A203B744C0061DDBE /* OWMCurrentConditions.swift in Sources */,
 				493325F62039F6DA0061DDBE /* AppDelegate.swift in Sources */,
 				49332616203A40930061DDBE /* ClockViewController.swift in Sources */,
 			);
