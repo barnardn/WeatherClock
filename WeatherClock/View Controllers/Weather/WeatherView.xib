@@ -7,6 +7,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="WeatherViewController" customModule="WeatherClock" customModuleProvider="target">
             <connections>
+                <outlet property="conditionsView" destination="A9W-Dl-VcZ" id="nwz-sf-B5X"/>
+                <outlet property="temperatureLabel" destination="pQy-Eg-vc2" id="gbQ-sb-Sr2"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>

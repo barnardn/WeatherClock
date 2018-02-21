@@ -22,7 +22,32 @@
 		49332625203B51B70061DDBE /* ConditionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49332624203B51B70061DDBE /* ConditionsView.xib */; };
 		49332627203B52AC0061DDBE /* ConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49332626203B52AC0061DDBE /* ConditionsView.swift */; };
 		4933262A203B744C0061DDBE /* OWMCurrentConditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49332629203B744C0061DDBE /* OWMCurrentConditions.swift */; };
+		497B4A3A203B8B9100EC122B /* OWMWeatherModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497B4A39203B8B9100EC122B /* OWMWeatherModels.swift */; };
+		4996CC21203D115200F2303D /* apikeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4996CC20203D115200F2303D /* apikeys.plist */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4933262E203B852D0061DDBE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49332632203B86400061DDBE /* Copy Dsyms */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Copy Dsyms";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		493325F22039F6DA0061DDBE /* WeatherClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,6 +68,8 @@
 		49332624203B51B70061DDBE /* ConditionsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConditionsView.xib; sourceTree = "<group>"; };
 		49332626203B52AC0061DDBE /* ConditionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionsView.swift; sourceTree = "<group>"; };
 		49332629203B744C0061DDBE /* OWMCurrentConditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWMCurrentConditions.swift; sourceTree = "<group>"; };
+		497B4A39203B8B9100EC122B /* OWMWeatherModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWMWeatherModels.swift; sourceTree = "<group>"; };
+		4996CC20203D115200F2303D /* apikeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = apikeys.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +102,7 @@
 		493325F42039F6DA0061DDBE /* WeatherClock */ = {
 			isa = PBXGroup;
 			children = (
+				4996CC1F203D113100F2303D /* Resources */,
 				49332628203B70650061DDBE /* Network */,
 				49332611203A28F60061DDBE /* Startup */,
 				4933260E203A28C30061DDBE /* View Controllers */,
@@ -110,6 +138,7 @@
 		49332610203A28DF0061DDBE /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				497B4A38203B8B7100EC122B /* Models */,
 				4933261C203B4C3E0061DDBE /* WeatherViewController.swift */,
 				4933261D203B4C3E0061DDBE /* WeatherView.xib */,
 				49332624203B51B70061DDBE /* ConditionsView.xib */,
@@ -136,6 +165,22 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		497B4A38203B8B7100EC122B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				497B4A39203B8B9100EC122B /* OWMWeatherModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4996CC1F203D113100F2303D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4996CC20203D115200F2303D /* apikeys.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,6 +191,8 @@
 				493325EE2039F6DA0061DDBE /* Sources */,
 				493325EF2039F6DA0061DDBE /* Frameworks */,
 				493325F02039F6DA0061DDBE /* Resources */,
+				4933262E203B852D0061DDBE /* Embed Frameworks */,
+				49332632203B86400061DDBE /* Copy Dsyms */,
 			);
 			buildRules = (
 			);
@@ -169,6 +216,11 @@
 					493325F12039F6DA0061DDBE = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -200,6 +252,7 @@
 				4933261F203B4C3E0061DDBE /* WeatherView.xib in Resources */,
 				493325FB2039F6DA0061DDBE /* MainMenu.xib in Resources */,
 				4933260D203A1FB50061DDBE /* RootView.xib in Resources */,
+				4996CC21203D115200F2303D /* apikeys.plist in Resources */,
 				49332617203A40930061DDBE /* ClockView.xib in Resources */,
 				4933261B203A66DF0061DDBE /* TimeView.xib in Resources */,
 			);
@@ -218,6 +271,7 @@
 				49332627203B52AC0061DDBE /* ConditionsView.swift in Sources */,
 				49332619203A66D20061DDBE /* TimeView.swift in Sources */,
 				4933262A203B744C0061DDBE /* OWMCurrentConditions.swift in Sources */,
+				497B4A3A203B8B9100EC122B /* OWMWeatherModels.swift in Sources */,
 				493325F62039F6DA0061DDBE /* AppDelegate.swift in Sources */,
 				49332616203A40930061DDBE /* ClockViewController.swift in Sources */,
 			);
@@ -347,10 +401,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = WeatherClock/WeatherClock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = FA5W6TJ34U;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Vendor",
+				);
 				INFOPLIST_FILE = WeatherClock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.normbarnard.WeatherClock;
@@ -363,10 +421,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = WeatherClock/WeatherClock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = FA5W6TJ34U;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Vendor",
+				);
 				INFOPLIST_FILE = WeatherClock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.normbarnard.WeatherClock;

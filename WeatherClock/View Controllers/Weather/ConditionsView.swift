@@ -10,8 +10,8 @@ import Cocoa
 
 class ConditionsView: NSView {
 
-    @IBOutlet weak var iconImageView: NSImageView!
-    @IBOutlet weak var conditionsLabel: NSTextField!
+    @IBOutlet weak private var iconImageView: NSImageView!
+    @IBOutlet weak private var conditionsLabel: NSTextField!
     @IBOutlet var view: NSView!
     
     var conditionsText: String? {
@@ -22,7 +22,7 @@ class ConditionsView: NSView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        conditionsLabel = nil
+        conditionsText = nil
         let placeholder = NSImage(named: NSImage.Name("icon-weather-placeholder"))
         iconImageView.image = placeholder
     }
@@ -42,6 +42,11 @@ class ConditionsView: NSView {
             addSubview(view)
             view.frame = bounds
         }
+    }
+    
+    override func updateConstraints() {
+        conditionsLabel.preferredMaxLayoutWidth = conditionsLabel.bounds.width
+        super.updateConstraints()
     }
     
 }
