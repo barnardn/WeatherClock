@@ -1,1 +1,1 @@
-WeatherClock/Resources/apikeys.plist filter=git-crypt diff=git-crypt
+apikeys.plist filter=git-crypt diff=git-crypt
