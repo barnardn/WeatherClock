@@ -13,7 +13,7 @@ class WeatherViewController: NSViewController {
     @IBOutlet weak var conditionsView: ConditionsView!
     @IBOutlet weak var temperatureLabel: NSTextField!
     
-    let currentConditions = OWMCurrentConditions(apiKey: "75938ca6d68f6f92ec9b55946fb119af")
+    var currentConditions: OWMCurrentConditions?
     
     override var nibName: NSNib.Name? {
         return NSNib.Name("WeatherView")
@@ -21,10 +21,18 @@ class WeatherViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let apikey = apiKey() else { fatalError() }
+        currentConditions = OWMCurrentConditions(apiKey: apikey)
+    }
+    
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        guard let currentConditions = currentConditions else { return }
         currentConditions.fetch(forZipcode: "49002") { [weak self] fetchResults in
             DispatchQueue.main.async { self?.display(fetchResults) }
         }
     }
+    
     
     // MARK: private api
 
@@ -39,6 +47,12 @@ class WeatherViewController: NSViewController {
             let conditions = weather.parameters.map{ $0.description }
             conditionsView.conditionsText =  conditions.joined(separator: ",\n")
         }
+    }
+
+    private func apiKey() -> String? {
+        guard let path = Bundle.main.path(forResource: "apikeys", ofType: "plist") else { fatalError() }
+        guard let keysDict = NSDictionary.init(contentsOfFile: path) as? [String:String] else { fatalError() }
+        return keysDict["CurrentConditionsKey"]
     }
     
 }
