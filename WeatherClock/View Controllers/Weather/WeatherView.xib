@@ -8,8 +8,10 @@
         <customObject id="-2" userLabel="File's Owner" customClass="WeatherViewController" customModule="WeatherClock" customModuleProvider="target">
             <connections>
                 <outlet property="conditionsView" destination="A9W-Dl-VcZ" id="nwz-sf-B5X"/>
+                <outlet property="directionImageView" destination="2tx-5T-9pQ" id="OWs-yt-eOf"/>
                 <outlet property="temperatureLabel" destination="pQy-Eg-vc2" id="gbQ-sb-Sr2"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+                <outlet property="windSpeedLabel" destination="gio-oq-iah" id="wjM-3C-4VH"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
@@ -19,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="WVs-PL-2oW">
-                    <rect key="frame" x="18" y="171" width="673" height="19"/>
+                    <rect key="frame" x="18" y="163" width="673" height="19"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="19" id="lQp-FM-v8S"/>
                     </constraints>
@@ -30,35 +32,75 @@
                     </textFieldCell>
                 </textField>
                 <customView verticalHuggingPriority="249" verticalCompressionResistancePriority="718" translatesAutoresizingMaskIntoConstraints="NO" id="A9W-Dl-VcZ" customClass="ConditionsView" customModule="WeatherClock" customModuleProvider="target">
-                    <rect key="frame" x="20" y="113" width="669" height="50"/>
+                    <rect key="frame" x="20" y="105" width="669" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="twc-f6-Dsn"/>
                     </constraints>
                 </customView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="pQy-Eg-vc2">
-                    <rect key="frame" x="18" y="83" width="673" height="22"/>
+                    <rect key="frame" x="18" y="75" width="673" height="22"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="22" id="Ld7-2d-gjX"/>
                     </constraints>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="74˚c" id="ygG-Xt-oiZ">
-                        <font key="font" metaFont="system" size="18"/>
+                        <font key="font" metaFont="system" size="16"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="742" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="gio-oq-iah">
+                    <rect key="frame" x="98" y="45" width="593" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="Gi3-9S-xqg"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="13mph" id="ZJv-Nf-mb2">
+                        <font key="font" metaFont="system" size="16"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2tx-5T-9pQ">
+                    <rect key="frame" x="70" y="45" width="22" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="Eb1-Wq-J3i"/>
+                        <constraint firstAttribute="width" constant="22" id="pPL-9o-9U8"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="icon-arrow" id="XqF-Ny-Ltg"/>
+                </imageView>
+                <textField horizontalHuggingPriority="252" verticalHuggingPriority="750" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="MJA-Kt-XGW">
+                    <rect key="frame" x="18" y="45" width="46" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="uqz-dG-lPz"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Wind:" id="YOY-1H-Adz">
+                        <font key="font" metaFont="system" size="16"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
             </subviews>
             <constraints>
+                <constraint firstItem="MJA-Kt-XGW" firstAttribute="top" secondItem="pQy-Eg-vc2" secondAttribute="bottom" constant="8" id="0cG-uH-7Bt"/>
                 <constraint firstItem="pQy-Eg-vc2" firstAttribute="leading" secondItem="A9W-Dl-VcZ" secondAttribute="leading" id="1aa-Pb-4HD"/>
+                <constraint firstItem="gio-oq-iah" firstAttribute="trailing" secondItem="pQy-Eg-vc2" secondAttribute="trailing" id="46Z-M9-ZcI"/>
                 <constraint firstItem="A9W-Dl-VcZ" firstAttribute="top" secondItem="WVs-PL-2oW" secondAttribute="bottom" constant="8" symbolic="YES" id="4Zz-Rm-ExA"/>
                 <constraint firstItem="WVs-PL-2oW" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" symbolic="YES" id="61c-SV-PLz"/>
                 <constraint firstAttribute="trailing" secondItem="WVs-PL-2oW" secondAttribute="trailing" constant="20" symbolic="YES" id="CZd-Mg-Nfh"/>
+                <constraint firstItem="MJA-Kt-XGW" firstAttribute="leading" secondItem="pQy-Eg-vc2" secondAttribute="leading" id="LHh-5s-9DZ"/>
+                <constraint firstItem="2tx-5T-9pQ" firstAttribute="top" secondItem="pQy-Eg-vc2" secondAttribute="bottom" constant="8" id="RrG-Rq-8K0"/>
+                <constraint firstItem="gio-oq-iah" firstAttribute="top" secondItem="pQy-Eg-vc2" secondAttribute="bottom" constant="8" id="Tjb-1F-ffV"/>
                 <constraint firstItem="pQy-Eg-vc2" firstAttribute="top" secondItem="A9W-Dl-VcZ" secondAttribute="bottom" constant="8" symbolic="YES" id="WPh-jC-OOI"/>
                 <constraint firstItem="A9W-Dl-VcZ" firstAttribute="trailing" secondItem="WVs-PL-2oW" secondAttribute="trailing" id="Zph-mC-hID"/>
+                <constraint firstItem="gio-oq-iah" firstAttribute="leading" secondItem="2tx-5T-9pQ" secondAttribute="trailing" constant="8" symbolic="YES" id="dle-GR-NHW"/>
                 <constraint firstItem="pQy-Eg-vc2" firstAttribute="trailing" secondItem="A9W-Dl-VcZ" secondAttribute="trailing" id="gvr-UK-ITM"/>
                 <constraint firstItem="A9W-Dl-VcZ" firstAttribute="leading" secondItem="WVs-PL-2oW" secondAttribute="leading" id="iVM-0z-irf"/>
-                <constraint firstItem="WVs-PL-2oW" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="xOb-1S-1cx"/>
+                <constraint firstItem="2tx-5T-9pQ" firstAttribute="leading" secondItem="MJA-Kt-XGW" secondAttribute="trailing" constant="8" symbolic="YES" id="mfU-hw-akn"/>
+                <constraint firstItem="WVs-PL-2oW" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="8" id="xOb-1S-1cx"/>
             </constraints>
-            <point key="canvasLocation" x="86.5" y="250"/>
+            <point key="canvasLocation" x="-189" y="242"/>
         </customView>
     </objects>
+    <resources>
+        <image name="icon-arrow" width="44" height="44"/>
+    </resources>
 </document>

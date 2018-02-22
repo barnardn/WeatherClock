@@ -21,6 +21,22 @@ struct Temperature: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         value = try container.decode(Double.self, forKey: CodingKeys.value)
     }
+}
+
+struct WindSpeed: Decodable {
+    let magnitude: Double
+    let direction: Double
+    
+    enum CodingKeys: String, CodingKey {
+        case magnitude = "speed"
+        case direction = "deg"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        magnitude = try container.decode(Double.self, forKey: .magnitude)
+        direction = try container.decode(Double.self, forKey: .direction)
+    }
     
 }
 
@@ -48,16 +64,19 @@ struct WeatherConditions: Decodable {
     
     let temp: Temperature
     let parameters: [Parameter]
+    let windSpeed: WindSpeed
     
     enum CodingKeys: String, CodingKey {
         case main
         case weather
+        case wind
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         temp = try container.decode(Temperature.self, forKey: CodingKeys.main)
         parameters = try container.decode([Parameter].self, forKey: CodingKeys.weather)
+        windSpeed = try container.decode(WindSpeed.self, forKey: CodingKeys.wind)
     }
     
 }

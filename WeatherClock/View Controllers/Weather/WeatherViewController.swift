@@ -12,6 +12,8 @@ class WeatherViewController: NSViewController {
 
     @IBOutlet weak var conditionsView: ConditionsView!
     @IBOutlet weak var temperatureLabel: NSTextField!
+    @IBOutlet weak var directionImageView: NSImageView!
+    @IBOutlet weak var windSpeedLabel: NSTextField!
     
     var currentConditions: OWMCurrentConditions?
     
@@ -33,6 +35,11 @@ class WeatherViewController: NSViewController {
         }
     }
     
+    override func viewDidDisappear() {
+        super.viewDidDisappear()
+        directionImageView.rotate(byDegrees: -1 * directionImageView.boundsRotation)
+    }
+    
     
     // MARK: private api
 
@@ -46,6 +53,9 @@ class WeatherViewController: NSViewController {
             temperatureLabel.stringValue = "Temperature: \(weather.temp.value)˚"
             let conditions = weather.parameters.map{ $0.description }
             conditionsView.conditionsText =  conditions.joined(separator: ",\n")
+            windSpeedLabel.stringValue = String(format: "%.1f˚ at %.1f mph", weather.windSpeed.direction,  weather.windSpeed.magnitude)
+            directionImageView.rotate(byDegrees: -1 * CGFloat(weather.windSpeed.direction))
+            directionImageView.needsDisplay = true
         }
     }
 
