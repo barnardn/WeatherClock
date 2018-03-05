@@ -22,6 +22,15 @@
 		49332625203B51B70061DDBE /* ConditionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49332624203B51B70061DDBE /* ConditionsView.xib */; };
 		49332627203B52AC0061DDBE /* ConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49332626203B52AC0061DDBE /* ConditionsView.swift */; };
 		4933262A203B744C0061DDBE /* OWMCurrentConditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49332629203B744C0061DDBE /* OWMCurrentConditions.swift */; };
+		49716DB2204CA58700D3B242 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49716DAF204CA58500D3B242 /* Result.framework */; };
+		49716DB3204CA58700D3B242 /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 49716DAF204CA58500D3B242 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		49716DB4204CA58700D3B242 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49716DB0204CA58600D3B242 /* ReactiveCocoa.framework */; };
+		49716DB5204CA58700D3B242 /* ReactiveCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 49716DB0204CA58600D3B242 /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		49716DB6204CA58700D3B242 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49716DB1204CA58600D3B242 /* ReactiveSwift.framework */; };
+		49716DB7204CA58700D3B242 /* ReactiveSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 49716DB1204CA58600D3B242 /* ReactiveSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		49716DBC204CA5D100D3B242 /* Result.framework.dSYM in Copy Dsyms */ = {isa = PBXBuildFile; fileRef = 49716DB9204CA5D000D3B242 /* Result.framework.dSYM */; };
+		49716DBD204CA5D100D3B242 /* ReactiveSwift.framework.dSYM in Copy Dsyms */ = {isa = PBXBuildFile; fileRef = 49716DBA204CA5D000D3B242 /* ReactiveSwift.framework.dSYM */; };
+		49716DBE204CA5D100D3B242 /* ReactiveCocoa.framework.dSYM in Copy Dsyms */ = {isa = PBXBuildFile; fileRef = 49716DBB204CA5D100D3B242 /* ReactiveCocoa.framework.dSYM */; };
 		497B4A3A203B8B9100EC122B /* OWMWeatherModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497B4A39203B8B9100EC122B /* OWMWeatherModels.swift */; };
 		4996CC21203D115200F2303D /* apikeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4996CC20203D115200F2303D /* apikeys.plist */; };
 /* End PBXBuildFile section */
@@ -33,6 +42,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				49716DB3204CA58700D3B242 /* Result.framework in Embed Frameworks */,
+				49716DB5204CA58700D3B242 /* ReactiveCocoa.framework in Embed Frameworks */,
+				49716DB7204CA58700D3B242 /* ReactiveSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -43,6 +55,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				49716DBC204CA5D100D3B242 /* Result.framework.dSYM in Copy Dsyms */,
+				49716DBD204CA5D100D3B242 /* ReactiveSwift.framework.dSYM in Copy Dsyms */,
+				49716DBE204CA5D100D3B242 /* ReactiveCocoa.framework.dSYM in Copy Dsyms */,
 			);
 			name = "Copy Dsyms";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,6 +83,12 @@
 		49332624203B51B70061DDBE /* ConditionsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConditionsView.xib; sourceTree = "<group>"; };
 		49332626203B52AC0061DDBE /* ConditionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionsView.swift; sourceTree = "<group>"; };
 		49332629203B744C0061DDBE /* OWMCurrentConditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWMCurrentConditions.swift; sourceTree = "<group>"; };
+		49716DAF204CA58500D3B242 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
+		49716DB0204CA58600D3B242 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/Mac/ReactiveCocoa.framework; sourceTree = "<group>"; };
+		49716DB1204CA58600D3B242 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/Mac/ReactiveSwift.framework; sourceTree = "<group>"; };
+		49716DB9204CA5D000D3B242 /* Result.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Result.framework.dSYM; path = Carthage/Build/Mac/Result.framework.dSYM; sourceTree = "<group>"; };
+		49716DBA204CA5D000D3B242 /* ReactiveSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = ReactiveSwift.framework.dSYM; path = Carthage/Build/Mac/ReactiveSwift.framework.dSYM; sourceTree = "<group>"; };
+		49716DBB204CA5D100D3B242 /* ReactiveCocoa.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = ReactiveCocoa.framework.dSYM; path = Carthage/Build/Mac/ReactiveCocoa.framework.dSYM; sourceTree = "<group>"; };
 		497B4A39203B8B9100EC122B /* OWMWeatherModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWMWeatherModels.swift; sourceTree = "<group>"; };
 		4996CC20203D115200F2303D /* apikeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = apikeys.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,6 +98,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49716DB2204CA58700D3B242 /* Result.framework in Frameworks */,
+				49716DB4204CA58700D3B242 /* ReactiveCocoa.framework in Frameworks */,
+				49716DB6204CA58700D3B242 /* ReactiveSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +110,7 @@
 		493325E92039F6DA0061DDBE = {
 			isa = PBXGroup;
 			children = (
+				49716DB8204CA59100D3B242 /* Vendor */,
 				493325F42039F6DA0061DDBE /* WeatherClock */,
 				493325F32039F6DA0061DDBE /* Products */,
 			);
@@ -163,6 +188,19 @@
 				49332629203B744C0061DDBE /* OWMCurrentConditions.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		49716DB8204CA59100D3B242 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				49716DBB204CA5D100D3B242 /* ReactiveCocoa.framework.dSYM */,
+				49716DBA204CA5D000D3B242 /* ReactiveSwift.framework.dSYM */,
+				49716DB9204CA5D000D3B242 /* Result.framework.dSYM */,
+				49716DB0204CA58600D3B242 /* ReactiveCocoa.framework */,
+				49716DB1204CA58600D3B242 /* ReactiveSwift.framework */,
+				49716DAF204CA58500D3B242 /* Result.framework */,
+			);
+			name = Vendor;
 			sourceTree = "<group>";
 		};
 		497B4A38203B8B7100EC122B /* Models */ = {

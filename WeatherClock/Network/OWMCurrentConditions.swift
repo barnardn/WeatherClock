@@ -7,12 +7,46 @@
 //
 
 import Foundation
+import ReactiveSwift
 
 enum OWMFetchResult {
     case success(weather: WeatherConditions)
     case network(error: Error)
     case badData(data: Data?)
 }
+
+enum OWMError: Error {
+    case unknown
+    case missingAppID
+    case malformedURL(string: String)
+    case network(underlyingError: Error)
+    case badOrMissingData(data: Data?)
+}
+
+enum OWMFetchRequest {
+    
+    case currentConditions(zipCode: String)
+
+    func toURLRequest() throws -> URLRequest {
+        guard let appid = apiKey() else { throw OWMError.missingAppID }
+        
+        switch self {
+        case .currentConditions(let zip):
+            let link = "http://api.openweathermap.org/data/2.5/weather?appid=\(appid)&units=imperial&zip=\(zip)"
+            guard let url = URL(string: link) else { throw OWMError.malformedURL(string: link) }
+            return URLRequest(url: url)
+        }
+    }
+    
+    /// puti in an extension
+    private func apiKey() -> String? {
+        guard let path = Bundle.main.path(forResource: "apikeys", ofType: "plist") else { fatalError() }
+        guard let keysDict = NSDictionary.init(contentsOfFile: path) as? [String:String] else { fatalError() }
+        return keysDict["CurrentConditionsKey"]
+    }
+}
+
+
 
 typealias WeatherResultsBlock = (OWMFetchResult) -> Void
 
@@ -59,5 +93,47 @@ class OWMCurrentConditions {
         task.resume()
     }
 
+    func fetch(weatherRequest: OWMFetchRequest) -> SignalProducer<WeatherConditions, OWMError> {
+        return dataProduder(forRequest: weatherRequest).flatMap(.concat, weatherProducer)
+    }
+    
+    private func dataProduder(forRequest request: OWMFetchRequest) -> SignalProducer<Data, OWMError> {
+        return SignalProducer{ observer, disposable in
+            do {
+                let urlRequest = try request.toURLRequest()
+                let task = self.urlSession.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
+                    if let error = error {
+                        observer.send(error: .network(underlyingError: error))
+                    }
+                    guard let _data = data else {
+                        observer.send(error: .badOrMissingData(data: data))
+                        return
+                    }
+                    observer.send(value: _data)
+                    observer.sendCompleted()
+                })
+                task.resume()
+            } catch let error as OWMError {
+                observer.send(error: error)
+            } catch {
+                observer.send(error: .unknown)
+            }
+        }
+    }
+    
+    private func weatherProducer(weatherData data: Data) -> SignalProducer<WeatherConditions, OWMError> {
+        return SignalProducer{ observer, disposable in
+            let decoder = JSONDecoder()
+            do {
+                let weather = try decoder.decode(WeatherConditions.self, from: data)
+                observer.send(value: weather)
+                observer.sendCompleted()
+            } catch {
+                observer.send(error: .badOrMissingData(data: data))
+            }
+        }
+    }
+    
+    
     
 }
