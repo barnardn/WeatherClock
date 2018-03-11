@@ -54,7 +54,8 @@ class OWMCurrentConditions {
     }
     
     private func dataProducer(forRequest request: OWMFetchRequest) -> SignalProducer<Data, OWMError> {
-        return SignalProducer{ observer, disposable in
+        return SignalProducer{ [weak self] observer, disposable in
+            guard let `self` = self else { return }
             do {
                 let urlRequest = try request.toURLRequest()
                 let task = self.urlSession.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
