@@ -26,7 +26,7 @@ class WeatherViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let apikey = apiKey() else { fatalError() }
-        currentConditions = OWMCurrentConditions(apiKey: apikey)
+        currentConditions = OWMCurrentConditions()
         disposeBag += currentConditions?.fetch(weatherRequest: .currentConditions(zipCode: "49002"))
             .observe(on: UIScheduler())
             .on(failed: { error in
