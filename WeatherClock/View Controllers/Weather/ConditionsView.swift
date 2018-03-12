@@ -20,6 +20,16 @@ class ConditionsView: NSView {
         }
     }
 
+    var iconURL: URL? {
+        didSet {
+            if let iconURL = iconURL {
+                iconImageView.setImage(from: iconURL)
+            } else {
+                iconImageView.image = nil
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         conditionsText = nil

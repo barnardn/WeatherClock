@@ -25,7 +25,6 @@ class WeatherViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let apikey = apiKey() else { fatalError() }
         currentConditions = OWMCurrentConditions()
         disposeBag += currentConditions?.fetch(weatherRequest: .currentConditions(zipCode: "49002"))
             .observe(on: UIScheduler())
@@ -53,12 +52,20 @@ class WeatherViewController: NSViewController {
         windSpeedLabel.stringValue = String(format: "%.1f˚ at %.1f mph", weather.windSpeed.direction,  weather.windSpeed.magnitude)
         directionImageView.rotate(byDegrees: -1 * CGFloat(weather.windSpeed.direction))
         directionImageView.needsDisplay = true
+        
+        if  let param = weather.parameters.first,
+            let iconURL = URL(string: "http://openweathermap.org/img/w/\(param.iconName).png")
+        {
+            conditionsView.iconURL = iconURL
+        } else {
+            conditionsView.iconURL = nil
+        }
     }
 
-    private func apiKey() -> String? {
-        guard let path = Bundle.main.path(forResource: "apikeys", ofType: "plist") else { fatalError() }
-        guard let keysDict = NSDictionary.init(contentsOfFile: path) as? [String:String] else { fatalError() }
-        return keysDict["CurrentConditionsKey"]
-    }
-    
+//    private func apiKey() -> String? {
+//        guard let path = Bundle.main.path(forResource: "apikeys", ofType: "plist") else { fatalError() }
+//        guard let keysDict = NSDictionary.init(contentsOfFile: path) as? [String:String] else { fatalError() }
+//        return keysDict["CurrentConditionsKey"]
+//    }
+//
 }
