@@ -26,6 +26,10 @@ class WeatherViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         currentConditions = OWMCurrentConditions()
+    }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
         disposeBag += currentConditions?.fetch(weatherRequest: .currentConditions(zipCode: "49002"))
             .observe(on: UIScheduler())
             .on(failed: { error in
@@ -34,7 +38,6 @@ class WeatherViewController: NSViewController {
                 self.display(weather)
             })
             .start()
-        
     }
     
     override func viewDidDisappear() {
