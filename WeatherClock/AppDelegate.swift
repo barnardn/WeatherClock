@@ -30,6 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.image = NSImage(named: NSImage.Name("icon-statusbar"))
             button.action = #selector(toggleRootPopover(_:))
         }
+        statusItem.menu = mainMenu()
         rootPopover.contentViewController = RootViewController()
     }
 
@@ -37,10 +38,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
 
-    @objc func printQuote(_ sender: NSStatusBarButton) {
-        let quoteText = "Never put off until tomorrow what you can do the day after tomorrow."
-        let quoteAuthor = "Mark Twain"       
-        print("\(quoteText) — \(quoteAuthor)")
+    private func mainMenu() -> NSMenu {
+        let menu = NSMenu()
+        let openItem = NSMenuItem(title: "Open", action: #selector(toggleRootPopover(_:)), keyEquivalent: "o")
+        menu.addItem(openItem)
+        menu.addItem(NSMenuItem.separator())
+        let quitItem = NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
+        menu.addItem(quitItem)
+        return menu
     }
 
     @objc private func toggleRootPopover(_ sender: Any?) {
