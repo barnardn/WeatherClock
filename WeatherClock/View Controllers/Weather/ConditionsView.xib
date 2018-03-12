@@ -7,7 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ConditionsView" customModule="WeatherClock" customModuleProvider="target">
             <connections>
-                <outlet property="conditionsLabel" destination="5b1-eA-ptb" id="NVy-Jc-zDW"/>
+                <outlet property="conditionsLabel" destination="FiO-hS-xqf" id="lGj-MW-ksh"/>
                 <outlet property="iconImageView" destination="05I-wX-RHh" id="R7k-Zj-jaZ"/>
                 <outlet property="view" destination="c22-O7-iKe" id="QGT-MI-slP"/>
             </connections>
@@ -26,9 +26,9 @@
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="icon-weather-placeholder" id="O0f-aJ-x1M"/>
                 </imageView>
-                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="5b1-eA-ptb">
-                    <rect key="frame" x="58" y="0.0" width="404" height="50"/>
-                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Multiline Label" id="UEK-Fl-TQ6">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FiO-hS-xqf">
+                    <rect key="frame" x="58" y="16" width="404" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="isO-AQ-R8x">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -38,14 +38,12 @@
             <constraints>
                 <constraint firstItem="05I-wX-RHh" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="3pM-2l-oyR"/>
                 <constraint firstAttribute="bottom" secondItem="05I-wX-RHh" secondAttribute="bottom" id="M1c-MO-Sdf"/>
-                <constraint firstAttribute="trailing" secondItem="5b1-eA-ptb" secondAttribute="trailing" constant="20" symbolic="YES" id="PAm-lM-R22"/>
-                <constraint firstItem="5b1-eA-ptb" firstAttribute="centerY" secondItem="05I-wX-RHh" secondAttribute="centerY" id="cyc-S9-eEE"/>
+                <constraint firstItem="FiO-hS-xqf" firstAttribute="leading" secondItem="05I-wX-RHh" secondAttribute="trailing" constant="10" id="UHt-H7-FpY"/>
                 <constraint firstItem="05I-wX-RHh" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="dmm-sc-sF8"/>
-                <constraint firstItem="5b1-eA-ptb" firstAttribute="leading" secondItem="05I-wX-RHh" secondAttribute="trailing" constant="10" id="jhE-Yc-KTP"/>
-                <constraint firstItem="5b1-eA-ptb" firstAttribute="height" secondItem="05I-wX-RHh" secondAttribute="height" id="paB-Bh-vFG"/>
+                <constraint firstItem="FiO-hS-xqf" firstAttribute="centerY" secondItem="05I-wX-RHh" secondAttribute="centerY" id="lNv-xP-pHJ"/>
                 <constraint firstItem="05I-wX-RHh" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="we7-bD-IgA"/>
             </constraints>
-            <point key="canvasLocation" x="84" y="143"/>
+            <point key="canvasLocation" x="-127" y="37"/>
         </customView>
     </objects>
     <resources>
