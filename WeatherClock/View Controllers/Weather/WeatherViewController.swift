@@ -52,7 +52,7 @@ class WeatherViewController: NSViewController {
         temperatureLabel.stringValue = String(format:"Temperature: %.0f˚", weather.temp.value)
         let conditions = weather.parameters.map{ $0.description }
         conditionsView.conditionsText =  conditions.joined(separator: ",\n")
-        windSpeedLabel.stringValue = String(format: "%.1f˚ at %.1f mph", weather.windSpeed.direction,  weather.windSpeed.magnitude)
+        windSpeedLabel.stringValue = String(format: "\(weather.windSpeed.compassDirection()) at %.1f mph", weather.windSpeed.magnitude)
         directionImageView.rotate(byDegrees: -1 * CGFloat(weather.windSpeed.direction))
         directionImageView.needsDisplay = true
         guard

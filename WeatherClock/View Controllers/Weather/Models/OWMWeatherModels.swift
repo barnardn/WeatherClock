@@ -8,6 +8,47 @@
 
 import Foundation
 
+enum CompassDirection: String {
+    case north = "N"
+    case northeast = "NE"
+    case east = "E"
+    case southeast = "SE"
+    case south = "S"
+    case southwest = "SW"
+    case west = "W"
+    case northwest = "NW"
+    
+    static func approximageDirection(degrees: Double) -> CompassDirection {
+        switch degrees {
+        case 0...30:
+            return .north
+        case 31...60:
+            return .northeast
+        case 61...120:
+            return .east
+        case 121...150:
+            return .southeast
+        case 151...210:
+            return .south
+        case 211...240:
+            return .southwest
+        case 241...300:
+            return .west
+        case 301...330:
+            return .northwest
+        case 331...360:
+            return .north
+        default:
+            return .north
+        }
+    }
+}
+
+extension CompassDirection: CustomStringConvertible {
+    var description: String { return self.rawValue }
+}
+
+
 struct Temperature: Decodable {
     let value: Double
     let unit = UnitTemperature.fahrenheit
@@ -30,6 +71,10 @@ struct WindSpeed: Decodable {
     enum CodingKeys: String, CodingKey {
         case magnitude = "speed"
         case direction = "deg"
+    }
+    
+    func compassDirection() -> CompassDirection {
+        return CompassDirection.approximageDirection(degrees: direction)
     }
     
     init(from decoder: Decoder) throws {
