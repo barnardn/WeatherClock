@@ -65,7 +65,7 @@
                         <constraint firstAttribute="height" constant="22" id="Eb1-Wq-J3i"/>
                         <constraint firstAttribute="width" constant="22" id="pPL-9o-9U8"/>
                     </constraints>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="icon-arrow" id="XqF-Ny-Ltg"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="icon-compass-needle" id="XqF-Ny-Ltg"/>
                 </imageView>
                 <textField horizontalHuggingPriority="252" verticalHuggingPriority="750" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="MJA-Kt-XGW">
                     <rect key="frame" x="18" y="45" width="46" height="22"/>
@@ -101,6 +101,6 @@
         </customView>
     </objects>
     <resources>
-        <image name="icon-arrow" width="44" height="44"/>
+        <image name="icon-compass-needle" width="512" height="512"/>
     </resources>
 </document>

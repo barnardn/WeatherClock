@@ -30,7 +30,6 @@ class ClockViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         localTimeView.location = "Local time"
-        localTimeView.type = .big
         sanfranTimeView.location = "San Francisco"
         utcTimeView.location = "UTC"
         updateTimeDisplay()

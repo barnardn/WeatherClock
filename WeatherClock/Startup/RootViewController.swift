@@ -19,6 +19,13 @@ class RootViewController: NSViewController {
     override var nibName: NSNib.Name? {
         return NSNib.Name("RootView")
     }
+
+    override var preferredContentSize: CGSize {
+        get {
+            return CGSize(width: 500.0, height: 200.0)
+        }
+        set { super.preferredContentSize = newValue }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

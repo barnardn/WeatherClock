@@ -49,26 +49,20 @@ class WeatherViewController: NSViewController {
     // MARK: private api
 
     private func display(_ weather: WeatherConditions) {
-        temperatureLabel.stringValue = "Temperature: \(weather.temp.value)˚"
+        temperatureLabel.stringValue = String(format:"Temperature: %.0f˚", weather.temp.value)
         let conditions = weather.parameters.map{ $0.description }
         conditionsView.conditionsText =  conditions.joined(separator: ",\n")
         windSpeedLabel.stringValue = String(format: "%.1f˚ at %.1f mph", weather.windSpeed.direction,  weather.windSpeed.magnitude)
         directionImageView.rotate(byDegrees: -1 * CGFloat(weather.windSpeed.direction))
         directionImageView.needsDisplay = true
-        
-        if  let param = weather.parameters.first,
+        guard
+            let param = weather.parameters.first,
             let iconURL = URL(string: "http://openweathermap.org/img/w/\(param.iconName).png")
-        {
-            conditionsView.iconURL = iconURL
-        } else {
+        else {
             conditionsView.iconURL = nil
+            return
         }
+        conditionsView.iconURL = iconURL
     }
 
-//    private func apiKey() -> String? {
-//        guard let path = Bundle.main.path(forResource: "apikeys", ofType: "plist") else { fatalError() }
-//        guard let keysDict = NSDictionary.init(contentsOfFile: path) as? [String:String] else { fatalError() }
-//        return keysDict["CurrentConditionsKey"]
-//    }
-//
 }
