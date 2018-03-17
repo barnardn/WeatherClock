@@ -31,6 +31,7 @@
 		497B4A3A203B8B9100EC122B /* OWMWeatherModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497B4A39203B8B9100EC122B /* OWMWeatherModels.swift */; };
 		4996CC21203D115200F2303D /* apikeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4996CC20203D115200F2303D /* apikeys.plist */; };
 		49C560542055D8120000F1AB /* NSImageView+NetworkFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C560532055D8120000F1AB /* NSImageView+NetworkFetch.swift */; };
+		49C56056205D97A30000F1AB /* ClockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C56055205D97A30000F1AB /* ClockViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -87,6 +88,7 @@
 		497B4A39203B8B9100EC122B /* OWMWeatherModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWMWeatherModels.swift; sourceTree = "<group>"; };
 		4996CC20203D115200F2303D /* apikeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = apikeys.plist; sourceTree = "<group>"; };
 		49C560532055D8120000F1AB /* NSImageView+NetworkFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImageView+NetworkFetch.swift"; sourceTree = "<group>"; };
+		49C56055205D97A30000F1AB /* ClockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 				49332615203A40930061DDBE /* ClockView.xib */,
 				49332618203A66D20061DDBE /* TimeView.swift */,
 				4933261A203A66DF0061DDBE /* TimeView.xib */,
+				49C56055205D97A30000F1AB /* ClockViewModel.swift */,
 			);
 			path = Clock;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				49332619203A66D20061DDBE /* TimeView.swift in Sources */,
 				4933262A203B744C0061DDBE /* OWMCurrentConditions.swift in Sources */,
 				497B4A3A203B8B9100EC122B /* OWMWeatherModels.swift in Sources */,
+				49C56056205D97A30000F1AB /* ClockViewModel.swift in Sources */,
 				493325F62039F6DA0061DDBE /* AppDelegate.swift in Sources */,
 				49332616203A40930061DDBE /* ClockViewController.swift in Sources */,
 			);

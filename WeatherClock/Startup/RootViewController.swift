@@ -29,8 +29,8 @@ class RootViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let _clockViewController = ClockViewController()
+        
+        let _clockViewController = ClockViewController(viewModel: ClockViewModel())
         addChildViewController(_clockViewController)
         view.addSubview(_clockViewController.view)
         clockViewController = _clockViewController
