@@ -25,8 +25,6 @@ class ClockViewController: NSViewController {
     
     init(viewModel _viewModel: ClockViewModel) {
         viewModel = _viewModel
-        
-        
         super.init(nibName: nibName, bundle: nil)
     }
     
@@ -36,12 +34,12 @@ class ClockViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        localTimeView.location = "Local time"
-        sanfranTimeView.location = "San Francisco"
-        utcTimeView.location = "UTC"
-        disposable += localTimeView.timeLabel.reactive.stringValue <~ viewModel.localTime.producer.observe(on: UIScheduler())
-        disposable += sanfranTimeView.timeLabel.reactive.stringValue <~ viewModel.sanfranTime.producer.observe(on: UIScheduler())
-        disposable += utcTimeView.timeLabel.reactive.stringValue <~ viewModel.utcTime.producer.observe(on: UIScheduler())
+        localTimeView.location <~ viewModel.localTimeLabel
+        sanfranTimeView.location <~ viewModel.alternateTimeLabel
+        utcTimeView.location <~ viewModel.utcTimeLabel
+        disposable += localTimeView.time <~ viewModel.localTime
+        disposable += sanfranTimeView.time <~ viewModel.alternateTime
+        disposable += utcTimeView.time <~ viewModel.utcTime
     }
     
 }
