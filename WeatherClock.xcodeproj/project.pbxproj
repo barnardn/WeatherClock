@@ -127,10 +127,11 @@
 		493325F42039F6DA0061DDBE /* WeatherClock */ = {
 			isa = PBXGroup;
 			children = (
+				4933260F203A28D90061DDBE /* Clock */,
+				49332610203A28DF0061DDBE /* Weather */,
 				4996CC1F203D113100F2303D /* Resources */,
 				49332628203B70650061DDBE /* Network */,
 				49332611203A28F60061DDBE /* Startup */,
-				4933260E203A28C30061DDBE /* View Controllers */,
 				493325F52039F6DA0061DDBE /* AppDelegate.swift */,
 				493325F72039F6DA0061DDBE /* Assets.xcassets */,
 				493325F92039F6DA0061DDBE /* MainMenu.xib */,
@@ -138,15 +139,6 @@
 				493325FD2039F6DA0061DDBE /* WeatherClock.entitlements */,
 			);
 			path = WeatherClock;
-			sourceTree = "<group>";
-		};
-		4933260E203A28C30061DDBE /* View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				49332610203A28DF0061DDBE /* Weather */,
-				4933260F203A28D90061DDBE /* Clock */,
-			);
-			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 		4933260F203A28D90061DDBE /* Clock */ = {
