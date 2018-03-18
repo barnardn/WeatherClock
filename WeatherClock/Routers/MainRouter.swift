@@ -33,7 +33,7 @@ final class MainRouter {
     }
     
     func weatherViewController() -> WeatherViewController {
-        return WeatherViewController(withViewModel: WeatherViewModel())
+        return WeatherViewController(withViewModel: WeatherViewModel(dependencyContainer: dependencyContainer) )
     }
     
     func setupRootViewController() -> NSViewController? {

@@ -21,9 +21,7 @@ enum OWMFetchRequest {
     
     case currentConditions(zipCode: String)
 
-    func toURLRequest() throws -> URLRequest {
-        guard let appid = apiKey() else { throw OWMError.missingAppID }
-        
+    func toURLRequest(appid: String) throws -> URLRequest {
         switch self {
         case .currentConditions(let zip):
             let link = "http://api.openweathermap.org/data/2.5/weather?appid=\(appid)&units=imperial&zip=\(zip)"
@@ -31,22 +29,18 @@ enum OWMFetchRequest {
             return URLRequest(url: url)
         }
     }
-    
-    private func apiKey() -> String? {
-        guard let path = Bundle.main.path(forResource: "apikeys", ofType: "plist") else { fatalError() }
-        guard let keysDict = NSDictionary.init(contentsOfFile: path) as? [String:String] else { fatalError() }
-        return keysDict["CurrentConditionsKey"]
-    }
 }
 
 class OWMCurrentConditions {
     
     private let urlSession: URLSession
+    private let apiKey: String
     
-    init() {
+    init(apiKey _apiKey: String) {
         let sessionConfiguration = URLSessionConfiguration.ephemeral
         sessionConfiguration.timeoutIntervalForResource = 30.0
         urlSession = URLSession(configuration: sessionConfiguration)
+        apiKey = _apiKey
     }
 
     func fetch(weatherRequest: OWMFetchRequest) -> SignalProducer<WeatherConditions, OWMError> {
@@ -57,7 +51,7 @@ class OWMCurrentConditions {
         return SignalProducer{ [weak self] observer, disposable in
             guard let `self` = self else { return }
             do {
-                let urlRequest = try request.toURLRequest()
+                let urlRequest = try request.toURLRequest(appid: self.apiKey)
                 let task = self.urlSession.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
                     if let error = error {
                         observer.send(error: .network(underlyingError: error))

@@ -13,7 +13,7 @@ import Result
 
 final class WeatherViewModel {
     
-    private var currentConditionsClient = OWMCurrentConditions()
+    private let currentConditionsClient: OWMCurrentConditions
     private let disposable = ScopedDisposable(CompositeDisposable())
     
     // MARK: observerable properties
@@ -24,7 +24,20 @@ final class WeatherViewModel {
     let windDirection: Property<Double>
     let iconURL: Property<URL?>
     
-    init() {
+    init(dependencyContainer: ContainsAPIAccessKeys) {
+        
+        switch dependencyContainer.openWeatherMapAPIKey {
+            case .success(let key):
+                currentConditionsClient = OWMCurrentConditions(apiKey: key)
+            case .failure(let error):
+                switch error {
+                case .missingConfigurationKey(let keyName):
+                    fatalError("Missing \(keyName) keys file")
+                case .missingOrCorruptResource(let filename):
+                    fatalError("Bad or missig key file: \(filename)")
+            }
+        }
+        
         temperature = weather.map{ $0?.temp.value ?? 0.0 }
         conditions = weather.map{ $0?.parameters.map{ $0.description }.joined(separator: ",") ?? "" }
         windSpeed = weather.map{ weather in
