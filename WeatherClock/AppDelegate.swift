@@ -7,10 +7,16 @@
 //
 
 import Cocoa
+import ReactiveCocoa
+import ReactiveSwift
+
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
+    var mainRouter: MainRouter?
+    let dependenyContainer = MainStateContainer()
+    
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     let rootPopover = NSPopover()
     private lazy var rootEventMonitor: RootEventMonitor = {
@@ -31,7 +37,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.action = #selector(toggleRootPopover(_:))
         }
         statusItem.menu = mainMenu()
-        rootPopover.contentViewController = RootViewController()
+        let _router = MainRouter(dependencyContainer: dependenyContainer)
+        let rootViewModel = RootViewModel.init(dependenyContainer, router: _router)
+        rootPopover.contentViewController = RootViewController(viewModel: rootViewModel)
+        mainRouter = _router
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

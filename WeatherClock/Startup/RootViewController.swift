@@ -7,14 +7,14 @@
 //
 
 import Cocoa
+import ReactiveCocoa
+import ReactiveSwift
 
 class RootViewController: NSViewController {
 
-    @IBOutlet weak var quoteLabel: NSTextField!
-    @IBOutlet weak var quitButton: NSButton!
-
-    private var clockViewController: ClockViewController?
-    private var weatherViewController: WeatherViewController?
+    private var clockViewController: NSViewController?
+    private var weatherViewController: NSViewController?
+    private var viewModel: RootViewModel
     
     override var nibName: NSNib.Name? {
         return NSNib.Name("RootView")
@@ -27,15 +27,26 @@ class RootViewController: NSViewController {
         set { super.preferredContentSize = newValue }
     }
     
+    init(viewModel _viewModel: RootViewModel) {
+        viewModel = _viewModel
+        super.init(nibName: nibName, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("Not implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let _clockViewController = ClockViewController(viewModel: ClockViewModel())
+        let viewControllers = viewModel.childViewControllers()
+        
+        let _clockViewController = viewControllers[0]
         addChildViewController(_clockViewController)
         view.addSubview(_clockViewController.view)
         clockViewController = _clockViewController
         
-        let _weatherViewController = WeatherViewController(withViewModel: WeatherViewModel())
+        let _weatherViewController = viewControllers[1]
         addChildViewController(_weatherViewController)
         view.addSubview(_weatherViewController.view)
         weatherViewController = _weatherViewController
@@ -48,8 +59,5 @@ class RootViewController: NSViewController {
         clockViewController?.view.frame = clockFrame
         weatherViewController?.view.frame = CGRect(x: clockFrame.maxX, y: 0, width: clockFrame.width, height: view.bounds.height)
     }
-    
-    @IBAction func quitButtonClicked(_ sender: NSButton) {
-        NSApplication.shared.terminate(nil)
-    }
+
 }
