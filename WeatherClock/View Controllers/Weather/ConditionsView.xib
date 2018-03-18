@@ -26,7 +26,7 @@
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="icon-weather-placeholder" id="O0f-aJ-x1M"/>
                 </imageView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FiO-hS-xqf">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FiO-hS-xqf">
                     <rect key="frame" x="58" y="16" width="404" height="17"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="isO-AQ-R8x">
                         <font key="font" metaFont="system"/>
@@ -41,6 +41,7 @@
                 <constraint firstItem="FiO-hS-xqf" firstAttribute="leading" secondItem="05I-wX-RHh" secondAttribute="trailing" constant="10" id="UHt-H7-FpY"/>
                 <constraint firstItem="05I-wX-RHh" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="dmm-sc-sF8"/>
                 <constraint firstItem="FiO-hS-xqf" firstAttribute="centerY" secondItem="05I-wX-RHh" secondAttribute="centerY" id="lNv-xP-pHJ"/>
+                <constraint firstAttribute="trailing" secondItem="FiO-hS-xqf" secondAttribute="trailing" constant="20" symbolic="YES" id="sHf-Sw-U4k"/>
                 <constraint firstItem="05I-wX-RHh" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="we7-bD-IgA"/>
             </constraints>
             <point key="canvasLocation" x="-127" y="37"/>

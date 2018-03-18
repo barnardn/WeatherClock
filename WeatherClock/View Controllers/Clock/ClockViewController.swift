@@ -7,68 +7,39 @@
 //
 
 import Cocoa
+import ReactiveSwift
+import ReactiveCocoa
 
 class ClockViewController: NSViewController {
 
+    private var viewModel: ClockViewModel
+    private let disposable = ScopedDisposable(CompositeDisposable())
+    
     @IBOutlet weak var localTimeView: TimeView!
     @IBOutlet weak var sanfranTimeView: TimeView!
     @IBOutlet weak var utcTimeView: TimeView!
-    
-    private var cachedDateFormatters = [String: DateFormatter]()
-    private var timer: Timer?
-    
-    private lazy var timeFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.timeStyle = .short
-        return formatter
-    }()
     
     override var nibName: NSNib.Name? {
         return NSNib.Name("ClockView")
     }
     
+    init(viewModel _viewModel: ClockViewModel) {
+        viewModel = _viewModel
+        super.init(nibName: nibName, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("not implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        localTimeView.location = "Local time"
-        sanfranTimeView.location = "San Francisco"
-        utcTimeView.location = "UTC"
-        updateTimeDisplay()
-        let _timer = Timer(timeInterval: 1, repeats: true) { [weak self] timer in
-            guard let `self` = self else { return }
-            self.updateTimeDisplay()
-        }
-        timer = _timer
-        RunLoop.current.add(_timer, forMode: .defaultRunLoopMode)
-    }
-    
-    private func updateTimeDisplay() {
-        localTimeView.time = timeAt(timeZone: TimeZone.autoupdatingCurrent)
-        sanfranTimeView.time = timeAt(timeZone: TimeZone(abbreviation: "PDT"))
-        utcTimeView.time = timeAt(timeZone: TimeZone(abbreviation: "UTC"))
-    }
-    
-    private func timeAt(timeZone: TimeZone?) -> String? {
-        guard let timeZone = timeZone else { return nil }
-        
-        let formatter: DateFormatter
-        if let abbrev = timeZone.abbreviation() {
-            if let _formatter = cachedDateFormatters[abbrev] {
-                formatter = _formatter
-            } else {
-                formatter = ClockViewController.dateFormatter(forTimeZone: timeZone)
-                cachedDateFormatters[abbrev] = formatter
-            }
-        } else {
-            formatter = ClockViewController.dateFormatter(forTimeZone: timeZone)
-        }
-        return formatter.string(from: Date())
-    }
-    
-    fileprivate static func dateFormatter(forTimeZone timeZone: TimeZone) -> DateFormatter {
-        let formatter = DateFormatter()
-        formatter.timeZone = timeZone
-        formatter.timeStyle = .medium
-        return formatter
+        localTimeView.location <~ viewModel.localTimeLabel
+        sanfranTimeView.location <~ viewModel.alternateTimeLabel
+        utcTimeView.location <~ viewModel.utcTimeLabel
+        disposable += localTimeView.time <~ viewModel.localTime
+        disposable += sanfranTimeView.time <~ viewModel.alternateTime
+        disposable += utcTimeView.time <~ viewModel.utcTime
     }
     
 }

@@ -7,37 +7,17 @@
 //
 
 import Cocoa
-
-enum TimeViewType {
-    case big, normal
-}
+import ReactiveCocoa
+import ReactiveSwift
 
 class TimeView: NSView {
     
     @IBOutlet weak  var timeLabel: NSTextField!
     @IBOutlet weak  var locationLabel: NSTextField!
     @IBOutlet var view: NSView!
-    
-    
-    var time: String? {
-        didSet {
-            timeLabel.stringValue = time ?? ""
-        }
-    }
-    
-    var location: String? {
-        didSet {
-            locationLabel.stringValue = location ?? ""
-        }
-    }
-    
-    var type: TimeViewType = .normal {
-        didSet {
-            if type == .big {
-                timeLabel.font = NSFont.systemFont(ofSize: 38.0)
-            }
-        }
-    }
+
+    public let time = MutableProperty("")
+    public let location = MutableProperty("")
     
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
@@ -55,6 +35,8 @@ class TimeView: NSView {
             addSubview(view)
             view.frame = bounds
         }
+        timeLabel.reactive.stringValue <~ time.producer.observe(on: UIScheduler())
+        locationLabel.reactive.stringValue <~ location.producer.observe(on: UIScheduler())
     }
 
     

@@ -19,15 +19,15 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ctx-RB-0bN">
-                    <rect key="frame" x="-2" y="62" width="105" height="29"/>
+                    <rect key="frame" x="-2" y="61" width="120" height="30"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="12:00 PM" id="Lza-5D-uxY">
-                        <font key="font" metaFont="system" size="24"/>
+                        <font key="font" size="24" name="LucidaConsole"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5dz-H1-tTy">
-                    <rect key="frame" x="-2" y="43" width="56" height="17"/>
+                    <rect key="frame" x="-2" y="42" width="56" height="17"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Location" id="eSV-66-gGU">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>

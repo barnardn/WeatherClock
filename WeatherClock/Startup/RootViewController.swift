@@ -29,13 +29,13 @@ class RootViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let _clockViewController = ClockViewController()
+        
+        let _clockViewController = ClockViewController(viewModel: ClockViewModel())
         addChildViewController(_clockViewController)
         view.addSubview(_clockViewController.view)
         clockViewController = _clockViewController
         
-        let _weatherViewController = WeatherViewController()
+        let _weatherViewController = WeatherViewController(withViewModel: WeatherViewModel())
         addChildViewController(_weatherViewController)
         view.addSubview(_weatherViewController.view)
         weatherViewController = _weatherViewController

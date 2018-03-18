@@ -8,6 +8,7 @@
 
 import Cocoa
 import ReactiveSwift
+import ReactiveCocoa
 
 class WeatherViewController: NSViewController {
 
@@ -19,50 +20,43 @@ class WeatherViewController: NSViewController {
     var currentConditions: OWMCurrentConditions?
     var disposeBag = CompositeDisposable()
     
+    let viewModel: WeatherViewModel
+    
     override var nibName: NSNib.Name? {
         return NSNib.Name("WeatherView")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        currentConditions = OWMCurrentConditions()
+    required init?(coder: NSCoder) {
+        fatalError("not implemented")
+    }
+    
+    init(withViewModel _viewModel: WeatherViewModel) {
+        viewModel = _viewModel
+        super.init(nibName: nibName, bundle: nil)
     }
     
     override func viewWillAppear() {
         super.viewWillAppear()
-        disposeBag += currentConditions?.fetch(weatherRequest: .currentConditions(zipCode: "49002"))
+        temperatureLabel.reactive.stringValue <~ viewModel.temperature.producer
             .observe(on: UIScheduler())
-            .on(failed: { error in
-                print("got error \(error)")
-            }, value: { weather in
-                self.display(weather)
-            })
-            .start()
+            .map{String(format: "Temperature: %0.f˚", $0)}
+        
+        conditionsView.iconURLProperty <~ viewModel.iconURL
+        conditionsView.conditionsText <~ viewModel.conditions.producer.observe(on: UIScheduler())
+        windSpeedLabel.reactive.stringValue <~ viewModel.windSpeed.producer.observe(on: UIScheduler())
+        
+        viewModel.windDirection.producer
+            .observe(on: UIScheduler())
+            .on { [weak self] degrees in
+                self?.directionImageView.rotate(byDegrees: CGFloat(degrees))
+            }.start()
+        
+        viewModel.refreshWeatherConditions()
     }
-    
+
     override func viewDidDisappear() {
         super.viewDidDisappear()
         directionImageView.rotate(byDegrees: -1 * directionImageView.boundsRotation)
-    }
-    
-    
-    // MARK: private api
-
-    private func display(_ weather: WeatherConditions) {
-        temperatureLabel.stringValue = String(format:"Temperature: %.0f˚", weather.temp.value)
-        let conditions = weather.parameters.map{ $0.description }
-        conditionsView.conditionsText =  conditions.joined(separator: ",\n")
-        windSpeedLabel.stringValue = String(format: "\(weather.windSpeed.compassDirection()) at %.1f mph", weather.windSpeed.magnitude)
-        directionImageView.rotate(byDegrees: -1 * CGFloat(weather.windSpeed.direction))
-        directionImageView.needsDisplay = true
-        guard
-            let param = weather.parameters.first,
-            let iconURL = URL(string: "http://openweathermap.org/img/w/\(param.iconName).png")
-        else {
-            conditionsView.iconURL = nil
-            return
-        }
-        conditionsView.iconURL = iconURL
     }
 
 }
