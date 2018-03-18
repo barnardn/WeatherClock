@@ -35,7 +35,7 @@ class RootViewController: NSViewController {
         view.addSubview(_clockViewController.view)
         clockViewController = _clockViewController
         
-        let _weatherViewController = WeatherViewController()
+        let _weatherViewController = WeatherViewController(withViewModel: WeatherViewModel())
         addChildViewController(_weatherViewController)
         view.addSubview(_weatherViewController.view)
         weatherViewController = _weatherViewController

@@ -7,32 +7,20 @@
 //
 
 import Cocoa
+import ReactiveSwift
+import ReactiveCocoa
 
 class ConditionsView: NSView {
 
     @IBOutlet weak private var iconImageView: NSImageView!
     @IBOutlet weak private var conditionsLabel: NSTextField!
     @IBOutlet var view: NSView!
-    
-    var conditionsText: String? {
-        didSet {
-            conditionsLabel.stringValue = conditionsText ?? ""
-        }
-    }
 
-    var iconURL: URL? {
-        didSet {
-            if let iconURL = iconURL {
-                iconImageView.setImage(from: iconURL)
-            } else {
-                iconImageView.image = nil
-            }
-        }
-    }
+    let conditionsText = MutableProperty("")
+    let iconURLProperty = MutableProperty<URL?>(nil)
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        conditionsText = nil
         let placeholder = NSImage(named: NSImage.Name("icon-weather-placeholder"))
         iconImageView.image = placeholder
     }
@@ -52,6 +40,15 @@ class ConditionsView: NSView {
             addSubview(view)
             view.frame = bounds
         }
+        conditionsLabel.reactive.stringValue <~ conditionsText.producer.observe(on: UIScheduler())
+        iconURLProperty.producer.observe(on: UIScheduler()).on { url in
+            if let url = url {
+                self.iconImageView.setImage(from: url)
+            } else {
+                self.iconImageView.image = nil
+            }
+        }.start()
+        
     }
     
     override func updateConstraints() {
