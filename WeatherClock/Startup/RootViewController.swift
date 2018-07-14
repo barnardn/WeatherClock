@@ -29,7 +29,7 @@ class RootViewController: NSViewController {
     
     init(viewModel _viewModel: RootViewModel) {
         viewModel = _viewModel
-        super.init(nibName: nibName, bundle: nil)
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {

@@ -32,7 +32,7 @@ class WeatherViewController: NSViewController {
     
     init(withViewModel _viewModel: WeatherViewModel) {
         viewModel = _viewModel
-        super.init(nibName: nibName, bundle: nil)
+        super.init(nibName: nil, bundle: nil)
     }
     
     override func viewWillAppear() {
