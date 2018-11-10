@@ -10,8 +10,6 @@ import Cocoa
 import ReactiveCocoa
 import ReactiveSwift
 
-// Just testing a github push
-
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
